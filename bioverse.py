@@ -11,7 +11,7 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from langchain.chat_models import init_chat_model
+from langchain.chat_models import ChatGroq
 from langgraph.graph import StateGraph, END, MessagesState
 from langgraph.checkpoint.memory import MemorySaver
 
@@ -37,7 +37,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if GROQ_API_KEY:
     os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
-llm = init_chat_model("groq:openai/gpt-oss-120b")
+llm = ChatGroq("groq:openai/gpt-oss-120b")
 
 # ============================================================
 # LangGraph State
