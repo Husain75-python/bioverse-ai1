@@ -11,7 +11,7 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
-from langchain.chat_models import ChatGroq
+from langchain_groq import ChatGroq
 from langgraph.graph import StateGraph, END, MessagesState
 from langgraph.checkpoint.memory import MemorySaver
 
