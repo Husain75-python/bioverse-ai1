@@ -37,7 +37,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if GROQ_API_KEY:
     os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
-llm = ChatGroq(llm = ChatGroq(
+llm = ChatGroq(
     model="groq:openai/gpt-oss-120b",
     api_key=GROQ_API_KEY
 )
