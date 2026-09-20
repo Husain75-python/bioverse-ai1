@@ -37,7 +37,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if GROQ_API_KEY:
     os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
-llm = init_chat_model("groq:qwen/qwen3.6-27b")
+llm = init_chat_model("groq:openai/gpt-oss-120b")
 
 # ============================================================
 # LangGraph State
@@ -224,10 +224,9 @@ Data:
 
 def writer_agent(state: MedState):
     topic = state.get("current_task")
-    research_data = state.get("research_data", "")
-    analysis = state.get("analysis", "")
-    drug_data = state.get("drug_discovery", "")
-    
+    research_data = state.get("research_data", "")[:3000]
+    analysis = state.get("analysis", "")[:2000]
+    drug_data = state.get("drug_discovery", "")[:2000]    
     prompt = f"""Write a comprehensive medical literature review on '{topic}'.
 Structure:
 1. Executive Summary
